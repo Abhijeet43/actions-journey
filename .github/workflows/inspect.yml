@@ -1,0 +1,17 @@
+name: inspect
+on: push
+jobs:
+  listing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+      - name: Print the Kernel and repository details
+        run: |
+          echo "Kernel Details"
+          uname -a
+          echo ""
+          echo "Repository File listings"
+          ls -la
+      - name: Print file count in repository
+        run: ls -la | wc -l
